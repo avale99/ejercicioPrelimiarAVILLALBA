@@ -31,7 +31,6 @@
                         <th width="150">MARCA</th>
                         <th width="150">MODELO</th>
                         <th width="150">FECHA CREACION</th>
-                        <th width="150">PRUEBA DICCIONARIO</th>
                         <th width="10"></th>
                         <th width="10"></th>
                       </tr>
@@ -43,7 +42,6 @@
                                 <td>{{c.marca}}</td>
                                 <td>{{c.modelo}}</td>
                                 <td>{{c.fecha_creacion}}</td>
-                                <td>{{c.dictionary}}</td>
                                 <td><a class="button warning" href="{% url 'coche_app:edit_coches' c.id %}">Editar</a></td>
                                 <td><a class="alert button" href="{% url 'coche_app:delete_coches' c.id %}">Eliminar</a></td>
                             </tr>

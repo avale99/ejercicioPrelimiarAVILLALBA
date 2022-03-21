@@ -7,8 +7,6 @@ class Coche(models.Model):
     modelo = models.ForeignKey('modelo.Modelo', verbose_name=("Modelo"), on_delete=models.SET_NULL, null=True)
     marca = models.ForeignKey('marca.Marca', verbose_name=("Marca"), on_delete=models.SET_NULL, null=True)
 
-    MARCAS_COCHES=()
-
     objects = CocheManager()
 
     class Meta:
@@ -18,10 +16,3 @@ class Coche(models.Model):
 
     def __str__(self):
         return self.matricula
-
-    #SHELL, Coche.objects.all()[X].dictionary()
-    def dictionary(self):
-        self.MARCAS_COCHES = (
-            (self.marca.nombre, self.matricula)
-            )
-        return self.MARCAS_COCHES

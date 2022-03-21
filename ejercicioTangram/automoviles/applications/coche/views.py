@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
@@ -14,6 +13,14 @@ class ListCochesListView(ListView):
     template_name = 'coche/lista.html'
     paginate_by = 5
 
+    #Diccionario-Print en consola al abrir el servidor
+    dictionary={}
+    for key, values in Coche.objects.values_list("marca__nombre","matricula"):
+        dictionary.setdefault(key, []).append(values)
+    print('*******DICCIONARIO*******')
+    print(dictionary)
+    print('*************************')
+
     def get_queryset(self):
         try:
             buscar_clave = self.request.GET.get("busqueda", '')
@@ -27,6 +34,7 @@ class ListCochesListView(ListView):
                 return Coche.objects.all()
         except:
             return Coche.objects.all()
+    
 
 #CREATE
 class CocheCreateView(CreateView):
