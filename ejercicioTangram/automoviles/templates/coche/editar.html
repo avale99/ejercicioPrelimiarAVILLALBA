@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Coche{% endblock title %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container"  style="margin-top:50px;">
+        <div class="grid-x">
+            <h1 class="cell">Editar Coche</h1>
+            <div class="cell">
+                <form class="grid-x grid-margin-x" method="POST">{% csrf_token %}
+                    <div class="medium-6 cell">
+                        <label>Matricula:
+                          {{form.matricula}}
+                        </label>
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Fecha Fabricación:
+                          {{form.fecha_creacion}}
+                        </label>
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Marca:
+                          {{form.marca}}
+                        </label>
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Modelo:
+                          {{form.modelo}}
+                        </label>
+                    </div>
+                    <div class="cell">
+                        <button type="submit" class="submit success button">Actualizar</button>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

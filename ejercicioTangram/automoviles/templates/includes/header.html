@@ -1,0 +1,53 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li style="font-size:20px; font-weight:bold;"><a href="{% url 'marca_app:inicio' %}">Automóviles</a></li>
+        <li>
+          <a href="{% url 'coche_app:list_coches' %}">Listar</a>
+          <ul class="menu vertical">
+            <li><a href="{% url 'marca_app:list_marcas' %}">Marcas</a></li>
+            <li><a href="{% url 'modelo_app:list_modelos' %}">Modelos</a></li>
+            <li><a href="{% url 'coche_app:list_coches' %}">Coches</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="{% url 'coche_app:regist_coches' %}">Registrar</a>
+          <ul class="menu vertical">
+            <li><a href="{% url 'marca_app:regist_marcas' %}">Marcas</a></li>
+            <li><a href="{% url 'modelo_app:regist_modelos' %}">Modelos</a></li>
+            <li><a href="{% url 'coche_app:regist_coches' %}">Coches</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li>
+          <a href="{% url 'coche_app:list_coches' %}">API CRUD</a>
+          <ul class="menu vertical">
+            <li><a href="{% url 'coche_app:list_coches_api' %}">Listar</a>
+              <ul class="menu vertical">>
+                <li><a href="{% url 'coche_app:list_coches_api' %}">Coche</a></li>
+                <li><a href="{% url 'marca_app:list_marcas_api' %}">Marca</a></li>
+                <li><a href="{% url 'modelo_app:list_modelos_api' %}">Modelo</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'coche_app:regist_coches_api' %}">Registrar</a>
+              <ul class="menu vertical">>
+                <li><a href="{% url 'coche_app:regist_coches_api' %}">Coche</a></li>
+                <li><a href="{% url 'marca_app:regist_marcas_api' %}">Marca</a></li>
+                <li><a href="{% url 'modelo_app:regist_modelos_api' %}">Modelo</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'coche_app:select_coches' %}">Editar-Eliminar</a>
+              <ul class="menu vertical">>
+                <li><a href="{% url 'coche_app:select_coches' %}">Coche</a></li>
+                <li><a href="{% url 'marca_app:select_marcas' %}">Marca</a></li>
+                <li><a href="{% url 'modelo_app:select_modelos' %}">Modelo</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>

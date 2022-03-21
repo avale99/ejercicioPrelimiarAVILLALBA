@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Selección Coches{% endblock title %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container"  style="margin-top:50px;">
+        <div class="grid-x">
+            <h1 class="cell">Seleccione Coche</h1>
+            <form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %}
+                <div class="cell large-3">
+                    <select id="busqueda" name="busqueda">
+                        <option>Marca, Modelo, Matricula</option>
+                        <option>Fecha inferior a Año-Mes-Dia</option>
+                    </select>
+                </div>
+                <div class="cell large-7">
+                    <input type="text" id="kword" name="kword" placeholder="">
+                </div>
+                <div class="cell large-2">
+                    <button type="submit" class="submit success button">Buscar</button>
+                </div>
+            </form>
+            <div class="cell">
+                <table>
+                    <thead>
+                      <tr>
+                        <th width="50">MATRICULA</th>
+                        <th width="150">MARCA</th>
+                        <th width="150">MODELO</th>
+                        <th width="150">FECHA CREACION</th>
+                        <th width="10"></th>
+                        <th width="10"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in seleccion_coches %}
+                            <tr>
+                                <td>{{c.matricula}}</td>
+                                <td>{{c.marca}}</td>
+                                <td>{{c.modelo}}</td>
+                                <td>{{c.fecha_creacion}}</td>
+                                <td><a class="button warning" href="{% url 'coche_app:edit_coches_api' c.id %}">Editar</a></td>
+                                <td><a class="alert button" href="{% url 'coche_app:delete_coches_api' c.id %}">Eliminar</a></td>
+                            </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="cell">
+                {% if is_paginated %}
+                    <nav aria-label="Pagination">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="pagination-previous">
+                                    <a href="?page={{page_obj.previous_page_number}}">Atrás</a>
+                                </li>
+                            {% endif %}
+
+                            {% for pagina in paginator.page_range %}
+                                <li><a href="?page={{pagina}}" aria-label="Page 2">{{pagina}}</a></li>
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                                <li class="pagination-next">
+                                    <a href="?page={{page_obj.next_page_number}}">Siguiente</a>
+                                </li>
+                            {% endif %}
+                            
+                        </ul>
+                    </nav>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content%}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Modelo{% endblock title %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container" style="margin-top:50px;">
+        <div class="grid-x">
+            <h1 class="cell">Editar Modelo</h1>
+            <div class="cell">
+                <form class="grid-x grid-margin-x" method="POST">{% csrf_token %}
+                    <div class="medium-6 cell">
+                        <label>Modelo:
+                          {{form.nombre}}
+                        </label>
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Carroceria:
+                          {{form.carroceria}}
+                        </label>
+                    </div>
+                    <div class="cell">
+                        <button type="submit" class="submit success button">Actualizar</button>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

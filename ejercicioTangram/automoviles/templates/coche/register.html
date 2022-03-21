@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Coche{% endblock title %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container" style="margin-top:50px;">
+        <div class="grid-x">
+            <h1 class="cell">Registrar nuevo Coche {{object.name}}</h1>
+            <form class="grid-x grid-margin-x" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                <div class="medium-6 cell">
+                    <label>Matricula:
+                      {{form.matricula}}
+                    </label>
+                </div>
+                <div class="medium-6 cell">
+                    <label>Fecha Fabricación:
+                      {{form.fecha_creacion}}
+                    </label>
+                </div>
+                <div class="medium-6 cell">
+                    <label>Marca:
+                      {{form.marca}}
+                    </label>
+                </div>
+                <div class="medium-6 cell">
+                    <label>Modelo:
+                      {{form.modelo}}
+                    </label>
+                </div>
+                <div class="medium-12 cell">
+                    <button type="submit" class="submit success button">Registrar</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}

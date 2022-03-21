@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar Marca{% endblock title %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container" style="margin-top:50px;">
+        <div class="grid-x">
+            <h1 class="cell">Eliminar Marca {{object.nombre}}</h1>
+            <div class="cell">
+                <form class="cell" method="POST">{% csrf_token %}
+                    <div class="callout secondary">
+                        <h5>¿Desea eliminar esta marca?</h5>
+                        <button type="submit" class="alert button">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
